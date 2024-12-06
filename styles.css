@@ -6,15 +6,16 @@ body {
 }  
 
 .container {  
-    max-width: 500px;  
+    max-width: 1080px;  
     margin: 50px auto;  
     background: white;  
     padding: 20px;  
     border-radius: 8px;  
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  
+    overflow: hidden;  
 }  
 
-h1 {  
+h1, h2 {  
     text-align: center;  
     font-weight: 400;  
     color: #333;  
@@ -54,17 +55,10 @@ button {
     border-radius: 5px;  
     cursor: pointer;  
     font-size: 16px;  
-    transition: background-color 0.3s ease;  
 }  
 
 button:hover {  
     background-color: #0056b3;  
-}  
-
-h2 {  
-    margin-top: 30px;  
-    font-weight: 400;  
-    color: #333;  
 }  
 
 #result, #steps {  
@@ -74,3 +68,33 @@ h2 {
     margin-top: 10px;  
     border-radius: 4px;  
 }  
+
+.scrollable-table {  
+    max-width: 100%;  
+    overflow-x: auto;  
+    margin-top: 20px;  
+}  
+
+table {  
+    width: 100%;  
+    border-collapse: collapse;  
+    text-align: center;  
+    font-size: 14px;  
+}  
+
+table, th, td {  
+    border: 1px solid #ccc;  
+}  
+
+th, td {  
+    padding: 8px;  
+}  
+
+th {  
+    background: #007BFF;  
+    color: white;  
+}  
+
+.highlight {  
+    background-color: #ffcc00; /* Highlighted intersection color */  
+}
