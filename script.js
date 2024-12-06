@@ -53,12 +53,18 @@ document.getElementById('encryptBtn').addEventListener('click', () => {
     const key = document.getElementById('key').value;  
     
     if (plaintext && key) {  
-        const ciphertext = vigenereEncrypt(plaintext, key);  
-        document.getElementById('result').textContent = `Encrypted Message: ${ciphertext}`;  
+        // Step 1: Vigenère Encryption  
+        const vigenereCiphertext = vigenereEncrypt(plaintext, key);  
+        
+        // Step 2: Simulate Asymmetric Encryption  
+        const finalCiphertext = "ASIM" + vigenereCiphertext; // Simulating asymmetric encryption  
+        
+        document.getElementById('result').textContent = `Final Encrypted Message: ${finalCiphertext}`;  
         
         const steps = [  
-            `1. Repeated Key: ${key.repeat(Math.ceil(plaintext.length / key.length)).slice(0, plaintext.length)}`,  
-            `2. Ciphertext: ${ciphertext}`  
+            `1. Vigenère Repeated Key: ${key.repeat(Math.ceil(plaintext.length / key.length)).slice(0, plaintext.length)}`,  
+            `2. Vigenère Ciphertext: ${vigenereCiphertext}`,  
+            `3. Asymmetric Encryption: ${finalCiphertext}`  
         ];  
         showSteps(steps);  
     } else {  
@@ -67,16 +73,22 @@ document.getElementById('encryptBtn').addEventListener('click', () => {
 });  
 
 document.getElementById('decryptBtn').addEventListener('click', () => {  
-    const ciphertext = document.getElementById('result').textContent.split(": ")[1];  
+    const finalCiphertext = document.getElementById('result').textContent.split(": ")[1];  
     const key = document.getElementById('key').value;  
     
-    if (ciphertext && key) {  
-        const decryptedMessage = vigenereDecrypt(ciphertext, key);  
+    if (finalCiphertext && key) {  
+        // Remove the simulation prefix (for demonstration purposes)  
+        const simulatedVigenereCiphertext = finalCiphertext.substring(4); // Remove "ASIM"  
+        
+        // Step 1: Vigenère Decryption  
+        const decryptedMessage = vigenereDecrypt(simulatedVigenereCiphertext, key);  
+        
         document.getElementById('result').textContent = `Decrypted Message: ${decryptedMessage}`;  
         
         const steps = [  
-            `1. Repeated Key: ${key.repeat(Math.ceil(ciphertext.length / key.length)).slice(0, ciphertext.length)}`,  
-            `2. Decrypted Message: ${decryptedMessage}`  
+            `1. Simulated Asymmetric Decryption gave: ${simulatedVigenereCiphertext}`,  
+            `2. Vigenère Repeated Key: ${key.repeat(Math.ceil(simulatedVigenereCiphertext.length / key.length)).slice(0, simulatedVigenereCiphertext.length)}`,  
+            `3. Decrypted Message: ${decryptedMessage}`  
         ];  
         showSteps(steps);  
     } else {  
