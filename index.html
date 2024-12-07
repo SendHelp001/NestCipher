@@ -1,49 +1,48 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Nested Cipher: Caesar and Vigenère</title>  
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">  
-    <link rel="stylesheet" href="styles.css">  
-</head>  
-<body>  
-    <div class="container">  
-        <h1>Nested Cipher: Caesar and Vigenère</h1>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Cipher: Caesar and Vigenère</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nested Cipher: Caesar and Vigenère</h1>
 
-        <!-- Input Section -->  
-        <div class="input-group">  
-            <label for="plaintext">Message:</label>  
-            <input type="text" id="plaintext" placeholder="Enter your message" />  
-        </div>  
-        <div class="input-group">  
-            <label for="caesarKey">Caesar Key:</label>  
-            <input type="number" id="caesarKey" placeholder="Enter the Caesar key" />  
-        </div>  
-        <div class="input-group">  
-            <label for="vigenereKey">Vigenère Key:</label>  
-            <input type="text" id="vigenereKey" placeholder="Enter the Vigenère key" />  
-        </div>  
+        <!-- Input Section -->
+        <div class="input-group">
+            <label for="plaintext">Message:</label>
+            <input type="text" id="plaintext" placeholder="Enter your message" />
+        </div>
+        <div class="input-group">
+            <label for="vigenereKey">Vigenère Key:</label>
+            <input type="text" id="vigenereKey" placeholder="Enter the Vigenère key" />
+        </div>
+        <div class="info-group">
+            <p id="caesarInfo">Caesar Shift: <span id="caesarShift">0</span></p>
+        </div>
 
-        <!-- Button Section -->  
-        <div class="button-group">  
-            <button id="encryptBtn">Encrypt</button>  
-            <button id="decryptBtn">Decrypt</button>  
-        </div>  
+        <!-- Button Section -->
+        <div class="button-group">
+            <button id="encryptBtn">Encrypt</button>
+            <button id="decryptBtn">Decrypt</button>
+        </div>
 
-        <!-- Result Section -->  
-        <h2>Result:</h2>  
-        <div id="result"></div>  
+        <!-- Result Section -->
+        <h2>Result:</h2>
+        <div id="result"></div>
 
-        <!-- Steps Section -->  
-        <h2>Steps:</h2>  
-        <div id="steps"></div>  
+        <!-- Steps Section -->
+        <h2>Steps:</h2>
+        <div id="steps"></div>
 
-        <!-- Vigenère Table -->  
-        <h2>Full Vigenère Table:</h2>  
-        <div id="vigenereTable" class="scrollable-table"></div>  
-    </div>  
+        <!-- Vigenère Table -->
+        <h2>Full Vigenère Table:</h2>
+        <div id="vigenereTable" class="scrollable-table"></div>
+    </div>
 
-    <script src="script.js"></script>  
-</body>  
+    <script src="script.js"></script>
+</body>
 </html>

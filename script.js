@@ -111,6 +111,12 @@ function highlightTable(plaintext, key) {
     }  
 }  
 
+function updateCaesarShiftInfo() {
+    const vigenereKey = document.getElementById("vigenereKey").value;
+    const shift = vigenereKey.length;
+    document.getElementById("caesarShift").textContent = shift;
+}
+
 function createVigenereTable() {  
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  
     const tableDiv = document.getElementById("vigenereTable");  
@@ -171,11 +177,11 @@ document.getElementById("encryptBtn").addEventListener("click", () => {
         alert("Please enter a message and Vigenère key.");  
     }  
 });  
-
+document.getElementById("vigenereKey").addEventListener("input", updateCaesarShiftInfo);
 document.getElementById("decryptBtn").addEventListener("click", () => {  
     const ciphertext = document.getElementById("plaintext").value.toUpperCase();  
     const vigenereKey = document.getElementById("vigenereKey").value.toUpperCase();  
-
+    
     if (ciphertext && vigenereKey) {  
         const { vigenerePlaintext, finalPlaintext } = decrypt(ciphertext, vigenereKey);  
 
