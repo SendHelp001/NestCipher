@@ -1,6 +1,7 @@
 body {  
     font-family: 'Poppins', sans-serif;  
-    background-color: #f8f9fa;  
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
     margin: 0;  
     padding: 0;  
 }  
@@ -8,17 +9,17 @@ body {
 .container {  
     max-width: 1080px;  
     margin: 50px auto;  
-    background: white;  
+    background: #1e1e1e; /* Dark container background */
     padding: 20px;  
     border-radius: 8px;  
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);  
     overflow: hidden;  
 }  
 
 h1, h2 {  
     text-align: center;  
     font-weight: 400;  
-    color: #333;  
+    color: #ff9800; /* Orange text color */
 }  
 
 .input-group {  
@@ -29,15 +30,17 @@ label {
     display: block;  
     margin-bottom: 8px;  
     font-weight: 300;  
-    color: #555;  
+    color: #bbb; /* Lighter label text */
 }  
 
 input {  
     width: 100%;  
     padding: 10px;  
-    border: 1px solid #ccc;  
+    border: 1px solid #555; /* Darker border */
     border-radius: 4px;  
     font-size: 16px;  
+    background-color: #333; /* Dark input background */
+    color: #e0e0e0; /* Light text color */
 }  
 
 .button-group {  
@@ -49,7 +52,7 @@ input {
 button {  
     padding: 10px;  
     width: 48%;  
-    background-color: #007BFF;  
+    background-color: #ff9800; /* Orange button background */
     color: white;  
     border: none;  
     border-radius: 5px;  
@@ -58,12 +61,12 @@ button {
 }  
 
 button:hover {  
-    background-color: #0056b3;  
+    background-color: #fb8c00; /* Darker orange on hover */
 }  
 
 #result, #steps {  
-    background: #f1f9ff;  
-    border-left: 4px solid #2196F3;  
+    background: #333; /* Dark background for results */
+    border-left: 4px solid #ff9800; /* Orange accent */
     padding: 10px;  
     margin-top: 10px;  
     border-radius: 4px;  
@@ -80,10 +83,11 @@ table {
     border-collapse: collapse;  
     text-align: center;  
     font-size: 14px;  
+    color: #e0e0e0; /* Light text color for table */
 }  
 
 table, th, td {  
-    border: 1px solid #ccc;  
+    border: 1px solid #555; /* Darker border for table */
 }  
 
 th, td {  
@@ -91,10 +95,10 @@ th, td {
 }  
 
 th {  
-    background: #007BFF;  
+    background: #ff9800; /* Orange background for table header */
     color: white;  
 }  
 
 .highlight {  
-    background-color: #ffcc00; /* Highlighted intersection color */  
+    background-color: #ff5722; /* Bright orange for highlighted intersections */
 }
