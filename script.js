@@ -70,9 +70,9 @@ function vigenereDecrypt(ciphertext, key) {
 
 function encrypt(plaintext, vigenereKey) {  
     const caesarKey = vigenereKey.length;  
-    const caesarCiphertext = caesarEncrypt(plaintext, caesarKey);  
-    const vigenereCiphertext = vigenereEncrypt(caesarCiphertext, vigenereKey);  
-    return { caesarCiphertext, vigenereCiphertext };  
+    const vigenereCiphertext = vigenereEncrypt(plaintext, vigenereKey);  
+    const caesarCiphertext = caesarEncrypt(vigenereCiphertext, caesarKey);  
+    return { vigenereCiphertext, caesarCiphertext };  
 }  
 
 function decrypt(ciphertext, vigenereKey) {  
@@ -161,14 +161,15 @@ document.getElementById("encryptBtn").addEventListener("click", () => {
     const vigenereKey = document.getElementById("vigenereKey").value.toUpperCase();  
 
     if (plaintext && vigenereKey) {  
-        const { caesarCiphertext, vigenereCiphertext } = encrypt(plaintext, vigenereKey);  
+        const { vigenereCiphertext, caesarCiphertext } = encrypt(plaintext, vigenereKey);  
 
-        document.getElementById("result").textContent = `Final Encrypted Message: ${vigenereCiphertext}`;  
+        document.getElementById("result").textContent = `Final Encrypted Message: ${caesarCiphertext}`;  
 
         const steps = [  
-            `1. Caesar Cipher Text: ${caesarCiphertext}`,  
-            `2. Vigenère Cipher Text: ${vigenereCiphertext}`,  
-            `3. Vigenère Key: ${vigenereKey}`  
+            `1. Vigenère Cipher Text (Before Caesar): ${vigenereCiphertext}`,  
+            `2. Caesar Cipher Text (Final): ${caesarCiphertext}`,  
+            `3. Vigenère Key: ${vigenereKey}`,  
+            `4. Final Encrypted Message: ${caesarCiphertext}`  
         ];  
         document.getElementById("steps").innerHTML = steps.map(step => `<p>${step}</p>`).join("");  
 
@@ -177,7 +178,9 @@ document.getElementById("encryptBtn").addEventListener("click", () => {
         alert("Please enter a message and Vigenère key.");  
     }  
 });  
+
 document.getElementById("vigenereKey").addEventListener("input", updateCaesarShiftInfo);
+
 document.getElementById("decryptBtn").addEventListener("click", () => {  
     const ciphertext = document.getElementById("plaintext").value.toUpperCase();  
     const vigenereKey = document.getElementById("vigenereKey").value.toUpperCase();  
@@ -190,11 +193,11 @@ document.getElementById("decryptBtn").addEventListener("click", () => {
         const steps = [  
             `1. Vigenère Plaintext: ${vigenerePlaintext}`,  
             `2. Caesar Plaintext: ${finalPlaintext}`,  
-            `3. Vigenère Key: ${vigenereKey}`  
+            `3. Vigenère Key: ${vigenereKey}`,  
+            `4. Final Decrypted Message: ${finalPlaintext}`  
         ];  
         document.getElementById("steps").innerHTML = steps.map(step => `<p>${step}</p>`).join("");  
 
-        // Highlight in table using the decrypted message  
         highlightTable(vigenerePlaintext, vigenereKey);   
     } else {  
         alert("Please enter a valid encrypted message and Vigenère key.");  
